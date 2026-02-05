@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>¿Quieres ser mi San Valentín?</title>
+
+  <style>
+    #card {
+    min-height: 520px;           /* más espacio vertical para que quepa todo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 25px;                   /* espacio entre imagen, pregunta y botones */
+    padding: 30px 20px 60px;     /* más padding abajo para separar del reproductor */
+    background: white;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    position: relative;
+    margin: 40px auto;
+    width: 360px;                /* un poquito más ancho si quieres */
+}
+
+#mainImg {
+    width: 260px;                /* un poco más grande para que destaque */
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+#spotify-player {
+    display: none;               /* ¡muy importante! oculto al inicio */
+    margin-top: 30px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Para que los botones queden bien centrados y con espacio */
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background: #fdeaff;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #card {
+        background: white;
+        padding: 40px 30px;
+        border-radius: 24px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        max-width: 380px;
+        width: 90%;
+    }
+
+    h2 {
+        font-size: 28px;
+        margin: 0 0 30px 0;
+        color: #333;
+        line-height: 1.3;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    button {
+        padding: 14px 32px;
+        border: none;
+        border-radius: 50px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    #yesBtn {
+        background: #ff4f94;
+        color: white;
+    }
+
+    #yesBtn:hover {
+        background: #ff2e7e;
+        transform: translateY(-2px);
+    }
+
+    #noBtn {
+        background: #e6e6e6;
+        color: #555;
+    }
+
+    #noBtn:hover {
+        background: #d0d0d0;
+    }
+
+    #mainImg {
+        width: 240px;
+        border-radius: 16px;
+        margin-bottom: 25px;
+        display: none;  /* oculto al inicio para mantener el estilo limpio */
+    }
+
+    #spotify-player {
+        display: none;
+        margin-top: 30px;
+        width: 100%;
+        border-radius: 12px;
+        overflow: hidden;
+    }body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #fdeaff, #f8d1ff);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        #card {
+            background: white;
+            padding: 30px;
+            border-radius: 25px;
+            width: 360px;
+            margin: 40px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        #mainImg {
+            width: 260px;
+            border-radius: 20px;
+        }
+        h2 {
+            margin: 20px 0;
+            color: #333;
+        }
+        .buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        button {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 12px;
+            font-size: 19px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        #yesBtn {
+            background: #ff4f94;
+            color: white;
+        }
+        #noBtn {
+            background: #e6e6e6;
+            color: #333;
+        }
+        #spotify-player {
+            display: none;
+            width: 100%;
+            max-width: 400px;
+            margin-top: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+  </style>
+
+  
+</head>
+<body>
+  <!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>¿Quieres ser mi San Valentín?</title>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background: #fdeaff;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #card {
+        background: white;
+        padding: 40px 30px;
+        border-radius: 24px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        max-width: 380px;
+        width: 90%;
+    }
+
+    h2 {
+        font-size: 28px;
+        margin: 0 0 30px 0;
+        color: #333;
+        line-height: 1.3;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    button {
+        padding: 14px 32px;
+        border: none;
+        border-radius: 50px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    #yesBtn {
+        background: #ff4f94;
+        color: white;
+    }
+
+    #yesBtn:hover {
+        background: #ff2e7e;
+        transform: translateY(-2px);
+    }
+
+    #noBtn {
+        background: #e6e6e6;
+        color: #555;
+    }
+
+    #noBtn:hover {
+        background: #d0d0d0;
+    }
+
+    #mainImg {
+        width: 240px;
+        border-radius: 16px;
+        margin-bottom: 25px;
+        display: none;  /* oculto al inicio para mantener el estilo limpio */
+    }
+
+    #spotify-player {
+        display: none;
+        margin-top: 30px;
+        width: 100%;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+</style>
+</head>
+<body>
+
+<div id="card">
+    <img id="mainImg" src="900F8F0A-C41E-451F-9B4E-EFC00507E5E2.jpeg">
+
+    <h2 id="question">¿Quieres ser mi San Valentín?</h2>
+
+    <div class="buttons">
+        <button id="yesBtn">Sí 🤍</button>
+        <button id="noBtn">No</button>
+    </div>
+
+    <iframe id="spotify-player" 
+            src="https://open.spotify.com/embed/track/6Qyc6fS4DsZjB2mRW9DsQs?utm_source=generator"
+            width="100%" height="152" frameborder="0" 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+            loading="lazy"></iframe>
+</div>
+
+<script>
+let noCount = 0;
+
+document.getElementById('yesBtn').onclick = sayYes;
+document.getElementById('noBtn').onclick = pressedNo;
+
+function pressedNo() {
+    noCount++;
+
+    let yesBtn = document.getElementById('yesBtn');
+    let noBtn = document.getElementById('noBtn');
+    let img = document.getElementById('mainImg');
+    let question = document.getElementById('question');
+
+    // Mostrar imagen cuando empiece el drama
+    img.style.display = 'block';
+
+    // Crecimiento suave y limitado
+    let scale = Math.min(1 + noCount * 0.3, 2.0);
+    yesBtn.style.transform = `scale(${scale})`;
+
+    if (noCount === 1) {
+        noBtn.innerText = "Mi amor ¿estás segura? 😢";
+        img.src = "B339F254-5A69-492C-9931-F5A2F8419CF6.jpeg"; // llorando
+    } else if (noCount === 2) {
+        noBtn.innerText = "¿No? Princesa no es chistoso 😭";
+        img.src = "B339F254-5A69-492C-9931-F5A2F8419CF6.jpeg"; // llorando otra vez
+    } else if (noCount === 3) {
+        noBtn.innerText = "Último chance... 😵";
+        yesBtn.innerText = "SÍ POR FAVOR 🤍";
+        yesBtn.style.transform = "scale(2.0)";
+        img.src = "6AFF349D-C13E-434A-B793-A3A534F599D1.jpeg"; // muerto
+    } else {
+        noBtn.innerText = "Ya para... di que sí 😭";
+    }
+}
+
+function sayYes() {
+    let question = document.getElementById('question');
+    let img = document.getElementById('mainImg');
+    let noBtn = document.getElementById('noBtn');
+    let spotify = document.getElementById('spotify-player');
+    let yesBtn = document.getElementById('yesBtn');
+
+    question.innerText = "Ya sabía que sí, te amo odiosa 🤍✨";
+    img.src = "ED35D025-C67C-4717-A409-AF28E3E7D502.jpeg"; // lengua
+
+    noBtn.style.display = 'none';
+    yesBtn.style.transform = 'scale(1.4)'; // lo dejamos un poco más grande pero sin tapar
+
+    spotify.style.display = 'block';
+
+    // Confeti suave
+    confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#ff4f94', '#ffffff', '#ffb3e6']
+    });
+}
+</script>
+
+</body>
+</html>
+
+  <script>
+    function pressedNo() {
+    noCount++;
+
+    let noBtn = document.getElementById("noBtn");
+    let yesBtn = document.getElementById("yesBtn");
+
+    // Crecimiento controlado: más suave y con tope
+    let scale = 1 + noCount * 0.35;       // crece menos agresivo por clic
+    scale = Math.min(scale, 2.2);         // ← máximo 2.2 veces (no tapa)
+    yesBtn.style.transform = `scale(${scale})`;
+
+    // Opcional: también agranda el texto un poco para que se vea mejor
+    yesBtn.style.fontSize = `${19 + noCount * 3}px`;
+
+    if (noCount === 1) {
+        noBtn.innerText = "Mi amor ¿estás segura? 😢";
+    }
+    if (noCount === 2) {
+        noBtn.innerText = "¿No? Princesa no es chistoso 😭";
+    }
+    if (noCount === 3) {
+        noBtn.innerText = "Último chance, no te voy a rogar... 😵";
+        yesBtn.innerText = "SÍ POR FAVOR 🤍";
+        yesBtn.style.transform = "scale(2.2)";  // tope aquí
+        yesBtn.classList.add("max-size");       // aplica la clase límite
+    }
+    if (noCount > 3) {
+        noBtn.innerText = "Ya para... di que sí porfi 😭";
+    }
+}
+
+function sayYes() {
+    let question = document.getElementById("question");
+    let noBtn = document.getElementById("noBtn");
+    let spotify = document.getElementById("spotify-player");
+    let yesBtn = document.getElementById("yesBtn");
+
+    question.innerText = "Ya sabía que sí, te amo odiosa 🤍✨";
+
+    noBtn.style.display = "none";
+    spotify.style.display = "block";
+
+    // Al decir sí, reducimos un poco el tamaño para que no tape el mensaje final
+    yesBtn.style.transform = "scale(1.4)";   // queda un poco más grande pero visible
+    yesBtn.style.fontSize = "24px";          // ajustamos texto
+
+    // Confeti...
+    confetti({ /* ... tu código de confetti ... */ });
+    // el setTimeout de confetti extra...
+}
+  </script>
+</body>
+</html>
